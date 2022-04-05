@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: java-web-app1
+  name: java-web-app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-web-app1
+  template:
+    metadata:
+      labels:
+        app: java-web-app1
+    spec:
+      containers:
+      - image: cryptogennepal/log4ju-simulate:latest
+        name: java-web-app1
+        ports:
+        - containerPort: 8080
