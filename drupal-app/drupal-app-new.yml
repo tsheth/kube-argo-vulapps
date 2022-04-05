@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: drupal-web-app
+  name: drupal-web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drupal-web-app
+  template:
+    metadata:
+      labels:
+        app: drupal-web-app
+    spec:
+      containers:
+      - image: tshethp/vul_drupal_site:v2
+        name: drupal-web-app
+        ports:
+        - containerPort: 80
